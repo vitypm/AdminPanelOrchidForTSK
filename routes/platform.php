@@ -17,7 +17,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
-
+use App\Orchid\Screens\PostEditScreen;
+use App\Orchid\Screens\PostListScreen;
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -32,6 +33,12 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+
+Route::screen('post/{post?}', PostEditScreen::class)
+    ->name('platform.post.edit');
+
+Route::screen('posts', PostListScreen::class)
+    ->name('platform.post.list');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)
